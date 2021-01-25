@@ -16,9 +16,9 @@ from sklearn.metrics import confusion_matrix
 import sklearn
 
 #Load dataset
-df = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_train.csv')
+df = pd.read_csv('main/data/reuter_train.csv')
 
-df_test = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_test.csv')
+df_test = pd.read_csv('main/data/reuter_test.csv')
 
 df_test= df_test.sample(frac =1, random_state=42)
 
@@ -103,9 +103,6 @@ es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience = 20)
 num_epochs = 4000
 CNN = model.fit(train_padded, training_author_seq, epochs=num_epochs, validation_data=(validation_padded, validation_author_seq), verbose=2, callbacks=[es])
     
-#Save Model
-model.save('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/Final/models/CNN')
-
 #Model Test
 y_pred = model.predict(test_padded)
 predict_class = np.argmax(y_pred, axis=1)
