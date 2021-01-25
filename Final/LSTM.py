@@ -15,9 +15,9 @@ from scipy import stats
 from sklearn.metrics import confusion_matrix
 
 #Load dataset
-df = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_train.csv')
+df = pd.read_csv('main/data/reuter_train.csv')
 
-df_test = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_test.csv')
+df_test = pd.read_csv('main/data/data/reuter_test.csv')
 
 df_test= df_test.sample(frac =1)
 
@@ -107,9 +107,6 @@ num_epochs = 4000
 #History
 BiLSTM = model.fit(train_padded, training_author_seq, epochs=num_epochs, validation_data=(validation_padded, validation_author_seq), verbose=2, callbacks=[es])
 
-#Save Model
-model.save('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/Final/models/LSTM')
-
 #Model Test
 y_pred = model.predict(test_padded)
 predict_class = np.argmax(y_pred, axis=1)
@@ -184,9 +181,6 @@ num_epochs = 1000
 
 #History
 BiLSTM_word_vec = model_glove.fit(train_padded, training_author_seq, epochs=num_epochs, validation_data=(validation_padded, validation_author_seq), verbose=2,callbacks=[es])
-
-#Save Model
-model_glove.save('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/Final/models/LSTM')
 
 #Model Test
 y_pred = model_glove.predict(test_padded)
