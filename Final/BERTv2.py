@@ -18,9 +18,9 @@ import sklearn
 from tensorflow import keras
 
 # Import data from csv
-df = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_train.csv')
+df = pd.read_csv('main/data/reuter_train.csv')
 
-df_test = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_test.csv')
+df_test = pd.read_csv('main/data/reuter_test.csv')
 
 df_test= df_test.sample(frac =1, random_state=42)
 
@@ -112,12 +112,6 @@ history = model.fit(
     verbose=2,
     epochs=100,
     callbacks=[es])
-
-#Save Model
-model.save('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/Final/models/BERT')
-
-#Load Moel
-model1 = keras.models.load_model('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/Final/models/BERT')
 
 # Ready test data
 test_y_author = to_categorical(data_test['author'])
@@ -212,9 +206,4 @@ for truth, sample_group in val_samples.items():
         print("Prediction: {} ".format(prediction['author']))
         print("\t + Sample: {}".format(sample[:100]))
     print("-"*30 + "\n")
-    
-
-# Build your model input
-#input_ids = Input(shape=(max_length,), name='input_ids', dtype='int32')
-#attention_mask = Input(shape=(max_length,), name='attention_mask', dtype='int32')
-#inputs = {'input_ids': input_ids, 'attention_mask': attention_mask}
+ 
