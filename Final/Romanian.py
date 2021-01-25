@@ -16,7 +16,7 @@ from sklearn.metrics import confusion_matrix
 import sklearn
 from sklearn.preprocessing import LabelEncoder
 
-df = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/Data Romana/data.csv', sep =";")
+df = pd.read_csv('main/data/data.csv', sep =";")
 
 df = df[['message', 'from']]
 
@@ -664,12 +664,6 @@ sklearn.metrics.accuracy_score(data_test['author'], an_array)
 #Inference
 import re
 
-#def preprocess_text(text):
-#    text = ' '.join(word.lower() for word in text.split(" "))
-#    text = re.sub(r"([.,!?])", r" \1 ", text)
-#    text = re.sub(r"[^a-zA-Z.,!?]+", r" ", text)
-#    return text
-
 def predict_author(text, classifier, vectorizer):
 
     #text = preprocess_text(text)
@@ -777,7 +771,7 @@ def computeKernelMatrix2(X,Y):
                 if count != 0 and count > 0:
                     K[i][j] += count
                     
-            #K[j][i] = K[i][j]
+            K[j][i] = K[i][j]
             
           
         
