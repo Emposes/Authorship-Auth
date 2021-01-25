@@ -15,9 +15,9 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 
 #Load dataset
-df = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_train.csv')
+df = pd.read_csv('main/data/reuter_train.csv')
 
-df_test = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_test.csv')
+df_test = pd.read_csv('main/data/reuter_test.csv')
 
 df_test= df_test.sample(frac =1, random_state=42)
 
