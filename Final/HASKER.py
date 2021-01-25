@@ -22,8 +22,8 @@ from nltk.corpus import stopwords
 from sklearn.svm import SVC
 
 #Load dataset
-df = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_train.csv')
-df_test = pd.read_csv('C:/Users/Win/Desktop/Doctorat/Poli/Proiect/GitHub/data/reuter_test.csv')
+df = pd.read_csv('main/data/reuter_train.csv')
+df_test = pd.read_csv('main/data/reuter_test.csv')
 
 df_test= df_test.sample(frac =1, random_state=42)
 
@@ -104,12 +104,8 @@ train_kernel = computeKernelMatrix2(xs, xs)
 svc = SVC(kernel='precomputed')
 svc.fit(train_kernel, ys)
 
-pd.DataFrame(train_kernel).to_csv("C:/Users/Win/Desktop/Doctorat/Poli/Proiect/Final/StringKernels/train.csv")
-
 test_kernel = computeKernelMatrix2(us, xs)
 y_test = svc.predict(test_kernel)
-
-pd.DataFrame(test_kernel).to_csv("C:/Users/Win/Desktop/Doctorat/Poli/Proiect/Final/StringKernels/test.csv")
 
 #Dimensionality reduction
 tsvd = TruncatedSVD(50)
