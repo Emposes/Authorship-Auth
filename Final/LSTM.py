@@ -97,7 +97,7 @@ model.summary()
 
 #Model optimizer and loss function
 optim = tf.keras.optimizers.Adam(lr = 5e-5)
-model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.compile(loss='sparse_categorical_crossentropy', optimizer=optim, metrics=['accuracy'])
 
 #Early stopping
 es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience = 10)
@@ -171,7 +171,7 @@ model_glove.summary()
                     
 #Model optimizer and loss function
 optim = tf.keras.optimizers.Adam(lr = 1e-3)
-model_glove.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model_glove.compile(loss='sparse_categorical_crossentropy', optimizer=optim, metrics=['accuracy'])
 
 #Early stopping
 es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience = 5)
